@@ -1,0 +1,12 @@
+[
+  {
+    "success": {
+      "/groups/0/action/on": true
+    }
+  },
+  {
+    "success": {
+      "/groups/0/action/hue": 13000
+    }
+  }
+]

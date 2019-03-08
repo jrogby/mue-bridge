@@ -1,0 +1,131 @@
+#%RAML 1.0
+title: mue-bridge
+version: v1
+protocols:
+  - HTTP
+baseUri: http://localhost:80/{version}
+mediaType:
+  - application/xml
+
+types:
+  light-state-change:
+    properties:
+      on:
+        type: boolean
+      bri:
+        type: integer
+      bri_inc:
+        type: integer
+      hue:
+        type: integer
+      hue_inc:
+        type: integer
+      sat:
+        type: integer
+      sat_inc:
+        type: integer
+      ct:
+        type: integer
+      ct_inc:
+        type: integer
+      xy:
+        type: object
+      xy_inc:
+        type: object
+      alert:
+        type: string
+      effect:
+        type: string
+      transitiontime: integer
+  light-state-response:
+      properties:
+        on: boolean
+        bri: integer
+        hue: integer
+        sat: integer
+        xy: object
+        alert: string
+        effect: string
+        colormode: string
+        reachable: boolean
+  light-attribute-change:
+    properties:
+      name: string
+
+/description.xml:
+  get:
+    description: Get information about bridge
+    responses:
+      200:
+        body:
+          application/xml:
+            example: !include(examples/read-description-response.xml)
+/api:
+  post:
+    description: Register a new user
+  /{username}:
+    /config:
+      get:
+        description: Read bridge configuration.
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include(examples/read-config-response.json)
+      put:
+        description: Update bridge configuration.
+        responses:
+            200:
+              body:
+                application/json:
+                  example: !include(examples/update-config-response.json)
+      /whitelist/{username}:
+        delete:
+          description: Remove username from whitelist of registered applications.
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include(examples/remove-from-whitelist-response.json)
+    /lights:
+      get:
+        description: Get all lights on bridge
+        body:
+          multipart/form-data:
+            type: light-state
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include(examples/read-lights-response.json)
+      /{number}:
+        description: Light ID
+        get:
+          description: Get information about a light
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include(examples/read-light-response.json)
+        /state:
+          put:
+            description: Change state of light
+    /groups:
+      get:
+      /{number}:
+        description: Group ID (0 == group with all lights)
+        get:
+          description: Show group information. Values returned is just last state (!live)
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include(examples/read-group-response.json)
+        /action:
+          put:
+            description: Change state of all lights in group
+            responses:
+              200:
+                body:
+                  application/json:
+                    example: !include(examples/update-group-response.json)

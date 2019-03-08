@@ -1,0 +1,7 @@
+HTTP/1.1 200 OK
+CACHE-CONTROL: max-age=100
+EXT:
+LOCATION: http://192.168.0.21:80/description.xml
+SERVER: FreeRTOS/6.0.5, UPnP/1.0, IpBridge/0.1
+ST: upnp:rootdevice
+USN: uuid:2fa00080-d000-11e1-9b23-001f80007bbe::upnp:rootdevice

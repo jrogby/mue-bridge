@@ -1,0 +1,31 @@
+{
+  "state": {
+    "on": true,
+    "bri": 202,
+    "hue": 13122,
+    "sat": 211,
+    "xy": [
+      0.5119,
+      0.4147
+    ],
+    "ct": 467,
+    "alert": "none",
+    "effect": "none",
+    "colormode": "ct",
+    "reachable": true
+  },
+  "type": "Extended color light",
+  "name": "TV Left",
+  "modelid": "LCT001",
+  "swversion": "65003148",
+  "pointsymbol": {
+    "1": "none",
+    "2": "none",
+    "3": "none",
+    "4": "none",
+    "5": "none",
+    "6": "none",
+    "7": "none",
+    "8": "none"
+  }
+}

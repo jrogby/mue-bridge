@@ -1,0 +1,21 @@
+{
+  "action": {
+    "on": true,
+    "bri": 254,
+    "hue": 13122,
+    "sat": 211,
+    "xy": [
+      0.5119,
+      0.4147
+    ],
+    "ct": 467,
+    "effect": "none",
+    "colormode": "ct"
+  },
+  "lights": [
+    "1",
+    "2",
+    "3"
+  ],
+  "name": "Lightset 0"
+}
